@@ -6,9 +6,13 @@ on:
 jobs:
   test1:
     runs-on: ubuntu-latest
-    run: echo "REPO_NAME=$(echo ${{ github.repository }} | sed 's#.*/##')" >> $GITHUB_ENV
+    steps:
+      - name: Get Repository
+        run: echo "REPO_NAME=$(echo ${{ github.repository }} | sed 's#.*/##')" >> $GITHUB_ENV
 
   test2:
     runs-on: ubuntu-latest
-    run: echo "ORG_NAME=${{ github.repository_owner }}" >> $GITHUB_ENV
+    steps:
+      - name: Get Organization
+        run: echo "ORG_NAME=${{ github.repository_owner }}" >> $GITHUB_ENV
     
